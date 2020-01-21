@@ -1,0 +1,63 @@
+body {
+  background-color: grey;
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px; 
+}
+
+.day {
+  border: 1px solid #999;
+  text-align: center;
+  background: #B9F3FA;
+  font-size: 15px;
+  line-height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+}
+
+.timeHour {
+  text-align: left;
+  font-size: 14px;
+  color: #929D9E;
+}
+#info {
+  text-align: inherit;
+  background: #EAE6E6;
+  float: left;
+  font-size: 15px;
+  height: 65px;
+  padding: 0;
+  width: 97px;
+  word-wrap: break-word;
+}
+
+.hour {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 13px;
+  line-height: 34px;
+  height: 100px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 100px;
+  word-wrap: break-word;
+}
+
+.Submit {
+  background: #fff;
+  border: 1px solid #999;
+  float: none;
+  font-size: 13px;
+  height: 20px;
+  margin-left: 50px;
+  padding: 0;
+  width: 61px;
+}
+.calendar {
+  display: flex;
+  flex-dirention: row;
+}

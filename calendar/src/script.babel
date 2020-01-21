@@ -1,0 +1,150 @@
+function Hour(props) {
+  
+    const info = "tietoaa ja muuta asiaa";  
+    return (
+      <div className="hour">
+        <div className="timeHour">{props.timeHour}</div>
+        <textarea id="info"></textarea>
+      </div>
+    );
+ }
+
+class Submit extends React.Component {
+  render() {
+
+    return (
+      <div className="SubmitArea">
+        <button className="SubmitButton" onclick="ButtonClick">{"Submit"}</button>
+        <p id="changes"></p>
+      </div>
+    );
+  }
+    ButtonClick() {
+    //Submit...
+  }
+
+}
+
+class Table extends React.Component {
+  renderHour(i) {
+    return (
+      <Hour 
+        timeHour={this.props.hours[i]}
+      />
+    );
+  }
+  
+  render() {
+    //const date = new Date();
+    const day = this.props.date + "." + this.props.month;
+    
+    return (
+      <div>
+          <div className="day">{day}</div>
+          <div className="timeline">
+            <div>
+            {this.renderHour(0)}
+            </div>
+            <div>
+            {this.renderHour(1)}
+            </div>
+            <div>
+            {this.renderHour(2)}
+            </div>
+            <div>
+            {this.renderHour(3)}
+            </div>
+            <div>
+            {this.renderHour(4)}
+            </div>
+            <div>
+            {this.renderHour(5)}
+            </div>
+            <div>
+            {this.renderHour(6)}
+            </div>
+            <div>
+            {this.renderHour(7)}
+            </div>
+            <div>
+            {this.renderHour(8)}
+            </div>
+            <div>
+            {this.renderHour(9)}
+            </div>
+            <div>
+            {this.renderHour(10)}
+            </div>
+            <div>
+            {this.renderHour(11)}
+            </div>
+            <div>
+            {this.renderHour(12)}
+            </div>
+      </div>
+     </div>
+  );
+ }
+}
+
+class Calendar extends React.Component {
+     constructor(props) {
+      super(props);
+      this.state = {
+            hours: Array(9).fill(null),
+      };
+  }
+ 
+  render() {
+    const hours = ["08:00","09:00","10:00","11:00",
+                   "12:00","13:00","14:00","15:00",
+                   "16:00","17:00","18:00","19:00",
+                   "20:00"];
+    const currentDate = new Date();
+    const tomorrowsDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+    const datDate = new Date(new Date().getTime() + (24 * 60 * 60 * 1000) * 2);
+    const today = currentDate.getDate();
+    const tomorrow = tomorrowsDate.getDate();
+    const dat = datDate.getDate();
+    const cumonth = currentDate.getMonth() + 1;
+    const tomonth = currentDate.getMonth() + 1;
+    const datmonth = currentDate.getMonth() + 1;
+
+    return (
+      <div className="calendar">
+        <div className="day">
+          <Table 
+            hours={hours}
+            date={today}
+            month={cumonth}
+            />
+        </div>
+        <div className="day">
+          <Table 
+            hours={hours}
+            date={tomorrow}
+            month={tomonth}
+            />
+        </div>
+        <div className="day">
+          <Table 
+            hours={hours}
+            date={dat}
+            month={datmonth}
+            />
+        </div>
+        <div className="Submit">
+          <Submit
+            />
+        </div>
+       </div>
+    );
+  }
+}
+
+// _______________________________
+
+ReactDOM.render(
+  <Calendar />,
+  document.getElementById("root")
+);
